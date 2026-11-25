@@ -136,6 +136,10 @@ footer .pf{width:100%;font-size:13px;color:var(--c-navy-200);opacity:.85;margin:
 .metaline span+span::before{content:"·";margin-right:var(--sp-2)}
 .btn-sm{padding:10px 16px;font-size:14px}
 .topbar-right{display:flex;align-items:center;gap:var(--sp-6)}
+.topnav{display:flex;align-items:center;gap:var(--sp-5)}
+.topnav a{font-family:var(--font-ui);font-size:15px;font-weight:500;color:var(--text-heading);text-decoration:none}
+.topnav a:hover{color:var(--text-accent)}
+section[id]{scroll-margin-top:80px}
 
 @media (max-width:860px){
   .hero-grid,.podcast-grid,.curso{grid-template-columns:1fr}
@@ -144,6 +148,8 @@ footer .pf{width:100%;font-size:13px;color:var(--c-navy-200);opacity:.85;margin:
   .facts{grid-template-columns:1fr 1fr}
   footer .wrap{grid-template-columns:1fr}
   .topbar .wrap{height:auto;padding-top:12px;padding-bottom:12px;flex-direction:column;align-items:flex-start}
+  .topbar-right{flex-wrap:wrap;gap:var(--sp-4)}
+  .topnav{gap:var(--sp-4)}
   .foto{aspect-ratio:1/1}
 }
 </style>
@@ -154,6 +160,12 @@ footer .pf{width:100%;font-size:13px;color:var(--c-navy-200);opacity:.85;margin:
   <div class="wrap">
     <a class="lockup sm" href="https://marcelofurlanfisio.github.io/cursos/#inicio" aria-label="Prof. Marcelo Furlan, fisioterapeuta osteopata D.O."><span class="lockup-name">Prof. Marcelo Furlan</span><span class="lockup-role">Fisioterapeuta Osteopata D.O.</span></a>
     <div class="topbar-right">
+      <nav class="topnav" aria-label="Principal">
+        <a href="#inicio">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="#cursos">Cursos</a>
+        <a href="https://marcelofurlanfisio.github.io/cadastro/">Cadastro</a>
+      </nav>
       <a class="btn btn-primary btn-sm" href="#cadastro">Cadastro de interessados</a>
     </div>
   </div>
