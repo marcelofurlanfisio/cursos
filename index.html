@@ -14,39 +14,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://marcelofurlanfisio.github.io/cadastro/assets/base.css">
 <style>
-:root{
-  --c-navy-900:#08161f;--c-navy-800:#0e2433;--c-navy-700:#143247;--c-navy-200:#a9c2d2;--c-navy-100:#dce7ed;
-  --c-teal-300:#5fbdb6;--c-teal-500:#14938f;
-  --c-cream-50:#fcf9f3;--c-cream-100:#f6f0e4;--c-cream-200:#ede3d0;--c-cream-500:#968566;
-  --c-clay-700:#8a4526;--c-clay-600:#a9552f;--c-clay-500:#c2683a;--c-clay-100:#f4e0d4;
-  --c-ink-700:#33414c;--c-ink-500:#5a6b78;--c-white:#fff;
-  --surface-page:var(--c-cream-50);--surface-subtle:var(--c-cream-100);--surface-card:var(--c-white);--surface-accent:var(--c-clay-100);
-  --text-heading:var(--c-navy-900);--text-body:var(--c-ink-700);--text-muted:var(--c-clay-700);--text-accent:var(--c-clay-700);
-  --text-on-accent:var(--c-cream-50);--border-hairline:var(--c-cream-200);--border-default:var(--c-cream-500);--border-accent:var(--c-clay-600);
-  --font-display:"Newsreader",Georgia,"Times New Roman",serif;--font-ui:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;--font-data:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-  --sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;--sp-7:32px;--sp-8:40px;--sp-9:48px;--sp-11:64px;--sp-12:80px;--sp-13:104px;
-  --radius-md:4px;--radius-lg:8px;--radius-pill:999px;--shadow-sm:0 2px 6px rgba(16,24,32,.07);--shadow-md:0 10px 30px rgba(16,24,32,.10);
-  --ls-display:-0.02em;--ls-heading:-0.01em;--ls-eyebrow:0.14em;--ls-mono:0.04em;
-}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{margin:0;font-family:var(--font-ui);font-size:17px;line-height:1.6;color:var(--text-body);background:var(--surface-page);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--font-ui);font-size:var(--fs-body);line-height:1.6;color:var(--text-body);background:var(--surface-page);-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:var(--font-display);color:var(--text-heading);margin:0;font-weight:600;letter-spacing:var(--ls-heading);line-height:1.18;text-wrap:balance}
 h1{font-size:clamp(40px,6vw,64px);letter-spacing:var(--ls-display);line-height:1.05;font-weight:500}
 h2{font-size:clamp(28px,3.4vw,38px)}
 h3{font-family:var(--font-ui);font-size:17px;font-weight:600;letter-spacing:0;line-height:1.35}
 p{margin:0}
 a{color:var(--text-accent)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-.eyebrow{font-family:var(--font-data);font-size:13px;letter-spacing:var(--ls-mono);color:var(--text-muted);text-transform:uppercase}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--page-margin)}
+.eyebrow{font-size:var(--fs-label);font-weight:600;letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--text-accent)}
 .metaline{font-family:var(--font-data);font-size:13px;letter-spacing:var(--ls-mono);color:var(--text-muted);display:flex;flex-wrap:wrap;gap:var(--sp-2)}
-section{padding:var(--sp-12) 0;border-top:1px solid var(--border-hairline)}
+section{padding:var(--sp-11) 0}
 .lead{font-size:19px;max-width:60ch;margin-top:var(--sp-4)}
-.btn{font-family:var(--font-ui);font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);padding:14px 22px;border-radius:var(--radius-md);text-decoration:none;border:0;cursor:pointer;line-height:1.1;transition:background-color 120ms,transform 120ms}
-.btn-primary{background:var(--c-clay-600);color:var(--text-on-accent)}
-.btn-primary:hover{background:var(--c-clay-700)}
-.btn-primary:active{transform:translateY(1px)}
+.btn{font-family:var(--font-ui);font-weight:600;letter-spacing:.01em;display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);border:none;border-radius:var(--radius-md);cursor:pointer;text-decoration:none;line-height:1.1;text-align:center;transition:background-color var(--dur-fast) var(--ease-standard),transform var(--dur-fast) var(--ease-standard),box-shadow var(--dur-fast) var(--ease-standard)}
+.btn-primary{background:var(--c-clay-600);color:var(--c-cream-50);box-shadow:0 6px 16px rgba(169,85,47,.28)}
+.btn-primary:hover{background:var(--c-clay-700);color:var(--c-cream-50);transform:translateY(-1px)}
+.btn-primary:active{background:#733a20;transform:translateY(1px)}
 .btn-ghost{background:transparent;color:var(--text-heading);box-shadow:inset 0 0 0 1.5px var(--border-default)}
 .btn-ghost:hover{background:var(--c-cream-100)}
 .btns{display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-top:var(--sp-7)}
@@ -131,7 +119,7 @@ section{padding:var(--sp-12) 0;border-top:1px solid var(--border-hairline)}
 .soon-box{border:1.5px dashed var(--border-default);border-radius:var(--radius-lg);padding:var(--sp-7);text-align:center;margin-top:var(--sp-7)}
 
 /* rodapé */
-footer{padding:var(--sp-9) 0;background:var(--c-navy-900);color:var(--c-navy-200)}
+footer{padding:var(--sp-9) 0 var(--sp-12)}
 footer .lockup-name{color:var(--c-cream-50)}
 footer .lockup-role{color:var(--c-teal-300)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:var(--sp-6);justify-content:space-between;align-items:flex-end}
@@ -158,6 +146,7 @@ section[id]{scroll-margin-top:80px}
   .topnav{gap:var(--sp-4)}
   .foto{aspect-ratio:1/1}
 }
+.mt-3{margin-top:var(--sp-3)}.mt-4{margin-top:var(--sp-4)}.mt-5{margin-top:var(--sp-5)}.mt-8{margin-top:var(--sp-8)}.mt-9{margin-top:var(--sp-9)}.m-0{margin:0}.pl-20{padding-left:20px}.pt-12{padding-top:var(--sp-12)}.mw-820{max-width:820px}.fs-hero{font-size:clamp(34px,5vw,48px)}.fs-28{font-size:28px}.no-top-border{border-top:0}
 </style>
 </head>
 <body>
@@ -179,11 +168,11 @@ section[id]{scroll-margin-top:80px}
 <main>
 
 <!-- 1. Apresentação -->
-<section class="hero" id="inicio" style="border-top:0">
+<section class="hero no-top-border" id="inicio">
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Especialista em Fisioterapia em Osteopatia (COFFITO)</p>
-      <h1 style="margin-top:var(--sp-4)">Terapia manual com raciocínio clínico, ensinada sem enrolação.</h1>
+      <h1 class="mt-4">Terapia manual com raciocínio clínico, ensinada sem enrolação.</h1>
       <p class="tagline">Cursos práticos para fisioterapeutas e estudantes. Antes de cada técnica, eu digo o que a evidência sustenta e onde ela não chega.</p>
       <div class="btns">
         <a class="btn btn-primary" href="#cursos">Ver os cursos</a>
@@ -205,7 +194,7 @@ section[id]{scroll-margin-top:80px}
 <section id="trajetoria">
   <div class="wrap">
     <p class="eyebrow">Trajetória</p>
-    <h2 style="margin-top:var(--sp-3)">Duas décadas entre a clínica e a sala de aula</h2>
+    <h2 class="mt-3">Duas décadas entre a clínica e a sala de aula</h2>
     <p class="lead">A trajetória completa está na página <a href="sobre.html">Sobre</a>.</p>
     <ol class="timeline">
       <li><span class="ano">2005</span><h3>Graduação em Fisioterapia, Universidade Metodista de Piracicaba (UNIMEP)</h3></li>
@@ -223,7 +212,7 @@ section[id]{scroll-margin-top:80px}
 <section id="onde-ensina">
   <div class="wrap">
     <p class="eyebrow">Onde ensina</p>
-    <h2 style="margin-top:var(--sp-3)">Instituições e programas</h2>
+    <h2 class="mt-3">Instituições e programas</h2>
     <div class="cards">
       <article class="card">
         <div class="logo">[logo UniMetrocamp]</div>
@@ -254,7 +243,7 @@ section[id]{scroll-margin-top:80px}
 <section id="cursos">
   <div class="wrap">
     <p class="eyebrow">Cursos</p>
-    <h2 style="margin-top:var(--sp-3)">Próximas turmas</h2>
+    <h2 class="mt-3">Próximas turmas</h2>
     <p class="lead">Turmas presenciais, com prática e material incluído. Cada curso tem sua página com o conteúdo completo e a lista de espera.</p>
 
     <article class="curso">
@@ -293,7 +282,7 @@ section[id]{scroll-margin-top:80px}
 <section id="instituicoes">
   <div class="wrap">
     <p class="eyebrow">Para instituições</p>
-    <h2 style="margin-top:var(--sp-3)">Quer levar um curso para a sua instituição?</h2>
+    <h2 class="mt-3">Quer levar um curso para a sua instituição?</h2>
     <p class="lead">Ministro cursos presenciais e workshops de terapia manual para instituições de ensino e de educação continuada.</p>
     <div class="cards">
       <article class="card"><h3>Curso presencial sob demanda</h3><p class="papel">Disponível para viajar. Turmas em outras cidades, com carga horária e formato intensivo definidos com a coordenação.</p></article>
@@ -310,12 +299,12 @@ section[id]{scroll-margin-top:80px}
 <section id="depoimentos">
   <div class="wrap">
     <p class="eyebrow">Quem já fez</p>
-    <h2 style="margin-top:var(--sp-3)">Depoimentos de alunos</h2>
+    <h2 class="mt-3">Depoimentos de alunos</h2>
     <div class="dep-grid">
       <!-- Cada depoimento aprovado entra aqui. Modelo: -->
-      <figure class="dep" style="margin:0"><p class="quote">[depoimento aprovado]</p><p class="autor">[Nome] · [@instagram] · [curso]</p></figure>
-      <figure class="dep" style="margin:0"><p class="quote">[depoimento aprovado]</p><p class="autor">[Nome] · [@instagram] · [curso]</p></figure>
-      <figure class="dep" style="margin:0"><p class="quote">[depoimento aprovado]</p><p class="autor">[Nome] · [@instagram] · [curso]</p></figure>
+      <figure class="dep m-0"><p class="quote">[depoimento aprovado]</p><p class="autor">[Nome] · [@instagram] · [curso]</p></figure>
+      <figure class="dep m-0"><p class="quote">[depoimento aprovado]</p><p class="autor">[Nome] · [@instagram] · [curso]</p></figure>
+      <figure class="dep m-0"><p class="quote">[depoimento aprovado]</p><p class="autor">[Nome] · [@instagram] · [curso]</p></figure>
     </div>
   </div>
 </section>
@@ -324,7 +313,7 @@ section[id]{scroll-margin-top:80px}
 <section id="podcast">
   <div class="wrap">
     <p class="eyebrow">Podcast</p>
-    <h2 style="margin-top:var(--sp-3)">[Nome do podcast]</h2>
+    <h2 class="mt-3">[Nome do podcast]</h2>
     <p class="lead">Gravado durante o CIOST 2026. [Frase de apresentação do programa.]</p>
     <div class="podcast-grid">
       <div class="capa" role="img" aria-label="Capa do podcast">[ CAPA DO PODCAST<br>quadrado 1:1 ]</div>
@@ -344,12 +333,12 @@ section[id]{scroll-margin-top:80px}
 <section id="cadastro" class="cadastro">
   <div class="wrap">
     <p class="eyebrow">Cadastro de interessados</p>
-    <h2 style="margin-top:var(--sp-3)">Quero ser avisado das próximas turmas</h2>
+    <h2 class="mt-3">Quero ser avisado das próximas turmas</h2>
     <p class="lead">Você recebe o aviso antes da abertura das inscrições. Não pedimos CPF nesse cadastro.</p>
     <div class="btns">
       <a class="btn btn-primary" href="https://marcelofurlanfisio.github.io/cadastro/">Fazer meu cadastro</a>
     </div>
-    <p class="metaline" style="margin-top:var(--sp-5)">Para estudantes e profissionais da área. Pacientes, procurem atendimento clínico por outro canal.</p>
+    <p class="metaline mt-5">Para estudantes e profissionais da área. Pacientes, procurem atendimento clínico por outro canal.</p>
   </div>
 </section>
 
@@ -357,7 +346,7 @@ section[id]{scroll-margin-top:80px}
 <section id="calendario">
   <div class="wrap">
     <p class="eyebrow">Calendário</p>
-    <h2 style="margin-top:var(--sp-3)">Calendário de turmas</h2>
+    <h2 class="mt-3">Calendário de turmas</h2>
     <div class="soon-box">
       <p>Em breve, todas as datas em um só lugar, com inscrição direta em cada turma.</p>
     </div>
@@ -366,7 +355,7 @@ section[id]{scroll-margin-top:80px}
 
 </main>
 
-<footer>
+<footer class="register-deep">
   <div class="wrap">
     <div class="lockup md"><div class="lockup-name">Prof. Marcelo Furlan</div><div class="lockup-role">Fisioterapeuta Osteopata D.O.</div></div>
     <div class="metaline">
