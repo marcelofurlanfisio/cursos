@@ -76,7 +76,8 @@ section{padding:var(--sp-11) 0}
 /* onde ensina */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);margin-top:var(--sp-8)}
 .card{background:var(--surface-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-3)}
-.card .logo{height:48px;display:flex;align-items:center;font-family:var(--font-data);font-size:12px;color:var(--c-ink-500);border:1px dashed var(--border-default);border-radius:var(--radius-md);padding:0 12px}
+.card .logo{height:56px;display:flex;align-items:center;margin-bottom:var(--sp-4)}
+.card .logo img{max-height:56px;max-width:100%;width:auto;height:auto;object-fit:contain;display:block}
 .card .papel{font-size:15px;color:var(--text-body)}
 .card .link{margin-top:auto;font-weight:600;font-size:15px}
 
@@ -217,23 +218,23 @@ section[id]{scroll-margin-top:80px}
     <h2 class="mt-3">Instituições e programas</h2>
     <div class="cards">
       <article class="card">
-        <div class="logo">[logo UniMetrocamp]</div>
+        <div class="logo"><img src="fotos/unimetrocamp_wyden.png" alt="Logo UniMetrocamp" loading="lazy"></div>
         <h3>UniMetrocamp<br><span class="loc">Campinas, SP</span></h3>
         <p class="papel">Professor de Ortopedia e Terapia Manual na graduação em Fisioterapia e em pós-graduações. Os cursos de terapia manual acontecem nas instalações da UniMetrocamp, em Campinas.</p>
       </article>
       <article class="card">
-        <div class="logo">[logo Inspirar]</div>
+        <div class="logo"><img src="fotos/faculdade_inspirar.png" alt="Logo Faculdade Inspirar" loading="lazy"></div>
         <h3>Faculdade Inspirar<br><span class="loc">Campinas, SP</span></h3>
         <p class="papel">Professor da pós-graduação presencial em Fisioterapia em Terapia Manual, turma de Campinas, com início em fevereiro de 2027.</p>
         <a class="link" href="https://www.inspirar.com.br/cursos/pos-graduacao/campinas/fisioterapia-em-terapia-manual-abordagem-baseada-no-raciocinio-clinico/fisioterapia-em-terapia-manual-abordagem-baseada-no-raciocinio-clinico-31867/" target="_blank" rel="noopener">Mais informações (site Inspirar)</a>
       </article>
       <article class="card">
-        <div class="logo">[logo Instituto Solange Freitas]</div>
+        <div class="logo"><img src="fotos/instituto_solange_freitas.png" alt="Logo Instituto Solange Freitas" loading="lazy"></div>
         <h3>Instituto Solange Freitas<br><span class="loc">São Paulo, SP</span></h3>
         <p class="papel">Professor convidado no curso de Técnicas Osteopáticas em Coluna Vertebral.</p>
       </article>
       <article class="card">
-        <div class="logo">[logo Einstein]</div>
+        <div class="logo"><img src="fotos/faculdades_einstein_limeira.png" alt="Logo Faculdade Einstein" loading="lazy"></div>
         <h3>Faculdade Einstein<br><span class="loc">Limeira, SP</span></h3>
         <p class="papel">Workshop de Manipulação e Mobilização Vertebral para o curso de Fisioterapia.</p>
       </article>
@@ -292,24 +293,155 @@ section[id]{scroll-margin-top:80px}
       <article class="card"><h3>Workshop avulso</h3><p class="papel">Formato curto para cursos de graduação, como o workshop de manipulação e mobilização vertebral na Faculdade Einstein.</p></article>
     </div>
     <div class="btns">
-      <a class="btn btn-secondary" href="mailto:marcelofurlan@yahoo.com.br?subject=Proposta para instituição">Enviar proposta para instituição</a>
+      <a class="btn btn-secondary btn-lg" href="mailto:marcelofurlan@yahoo.com.br?subject=Proposta para instituição">Enviar proposta para instituição</a>
     </div>
   </div>
 </section>
 
 <!-- 5. Depoimentos -->
-<section id="depoimentos">
+<style>
+.dep-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-6);margin-top:var(--sp-9)}
+.dep-card{flex:1 1 320px;max-width:380px;margin:0;display:flex;flex-direction:column;gap:var(--sp-6);justify-content:space-between;background:var(--surface-card);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);padding:var(--sp-7)}
+.dep-text{margin:0;position:relative;padding-top:var(--sp-6)}
+.dep-text::before{content:"\201C";position:absolute;top:-6px;left:-2px;font-family:var(--font-display);font-size:48px;line-height:1;color:var(--text-accent)}
+.dep-text p{margin:0;font-family:var(--font-display);font-size:clamp(16px,1.25vw,18px);line-height:1.5;color:var(--text-heading);overflow-wrap:anywhere}
+/* Depoimento longo mostra 4 linhas com reticências e o botão Ler mais */
+.dep-text p.dep-corte{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden}
+.dep-ler{display:inline-block;margin-top:var(--sp-3);padding:0;border:0;background:none;font-family:var(--font-ui);font-size:var(--fs-label);font-weight:600;color:var(--text-accent);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.dep-ler[hidden]{display:none}
+.dep-who{display:flex;align-items:center;gap:var(--sp-4)}
+.dep-av{flex:0 0 56px;width:56px;height:56px;border-radius:50%;overflow:hidden;background:var(--c-cream-100);box-shadow:inset 0 0 0 1.5px var(--border-default);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:24px;color:var(--text-muted)}
+.dep-av img{width:100%;height:100%;object-fit:cover;display:block}
+.dep-id{display:flex;flex-direction:column;min-width:0}
+.dep-id strong{font-size:var(--fs-body-sm);color:var(--text-heading);overflow-wrap:anywhere}
+.dep-id a{font-size:var(--fs-label);font-weight:600;color:var(--text-accent);text-decoration:none;overflow-wrap:anywhere}
+.dep-id a:hover{text-decoration:underline}
+.dep-more{display:flex;justify-content:center;margin-top:var(--sp-8)}
+#depoimentos[hidden],.dep-more[hidden]{display:none}
+@media (max-width:560px){.dep-card{padding:var(--sp-6);max-width:none}}
+</style>
+<section id="depoimentos" hidden aria-labelledby="dep-titulo">
   <div class="wrap">
     <p class="eyebrow">Quem já fez</p>
-    <h2 class="mt-3">Depoimentos de alunos</h2>
-    <div class="dep-grid">
-      <!-- Cada depoimento aprovado entra aqui. Modelo: -->
-      <figure class="dep m-0"><p class="quote">[depoimento aprovado]</p><p class="autor">[Nome] · [@instagram] · [curso]</p></figure>
-      <figure class="dep m-0"><p class="quote">[depoimento aprovado]</p><p class="autor">[Nome] · [@instagram] · [curso]</p></figure>
-      <figure class="dep m-0"><p class="quote">[depoimento aprovado]</p><p class="autor">[Nome] · [@instagram] · [curso]</p></figure>
+    <h2 id="dep-titulo" class="mt-3">Depoimentos de alunos</h2>
+    <div class="dep-grid" id="dep-grid"></div>
+    <div class="dep-more" id="dep-more" hidden>
+      <button class="btn btn-secondary" type="button" id="dep-mais">Ver mais depoimentos</button>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  /* ============ CONFIGURAÇÃO ============ */
+  const API   = "https://script.google.com/macros/s/AKfycbzXeBhNlrlYTk_yOsSeKX5FRsN_MBn1Y3Kdg6RMq097zGrYHypfSzCmO-ZJ0ghJ_XvtLQ/exec";
+  const CURSOS = ["mobilizacao-neural", "tmm-coluna", "tmm-membros-atm", "liberacao-miofascial", "pos-graduacao"]; // todos os cursos, juntos
+  const INICIAIS = 6;                   // quantos aparecem antes do botão "Ver mais"
+  /* ====================================== */
+
+  const secao = document.getElementById('depoimentos');
+  const grade = document.getElementById('dep-grid');
+  const mais  = document.getElementById('dep-more');
+  if (!secao || !grade) return;
+
+  /* Fotos guardadas no Drive chegam como "drive:ID". Aqui viram um endereço de imagem que abre no site. */
+  function fotoUrl(f){
+    f = String(f || '');
+    const m = f.match(/drive(?:%3A|:)([\w-]{20,})/i);
+    if (m) return 'https://lh3.googleusercontent.com/d/' + m[1] + '=w200';
+    return /^https:\/\//.test(f) ? f : '';
+  }
+
+  /* Mostra o Ler mais só nos depoimentos que passam de 4 linhas */
+  function confereCortes(){
+    grade.querySelectorAll('.dep-card').forEach(c => {
+      const p = c.querySelector('.dep-text p'), b = c.querySelector('.dep-ler');
+      if (!p || !b || !p.classList.contains('dep-corte')) return;
+      b.hidden = !(p.scrollHeight > p.clientHeight + 2);
+    });
+  }
+  let tCortes; window.addEventListener('resize', () => { clearTimeout(tCortes); tCortes = setTimeout(confereCortes, 150); });
+
+  function cartao(d){
+    const fig = document.createElement('figure');
+    fig.className = 'dep-card';
+
+    const q = document.createElement('blockquote');
+    q.className = 'dep-text';
+    const p = document.createElement('p');
+    p.textContent = d.comentario;           // sempre como texto, nunca como HTML
+    p.className = 'dep-corte';
+    const ler = document.createElement('button');
+    ler.type = 'button'; ler.className = 'dep-ler'; ler.textContent = 'Ler mais'; ler.hidden = true;
+    ler.setAttribute('aria-expanded', 'false');
+    ler.addEventListener('click', () => {
+      const aberto = p.classList.toggle('dep-corte') === false;
+      ler.textContent = aberto ? 'Ler menos' : 'Ler mais';
+      ler.setAttribute('aria-expanded', String(aberto));
+    });
+    q.append(p, ler);
+
+    const quem = document.createElement('figcaption');
+    quem.className = 'dep-who';
+
+    const av = document.createElement('span');
+    av.className = 'dep-av';
+    const inicial = (String(d.nome || '?').trim()[0] || '?').toUpperCase();
+    const foto = fotoUrl(d.foto);
+    if (foto){
+      const img = document.createElement('img');
+      img.src = foto;
+      img.alt = 'Foto de ' + d.nome;
+      img.loading = 'lazy';
+      img.referrerPolicy = 'no-referrer';
+      img.addEventListener('error', () => { av.textContent = inicial; });
+      av.append(img);
+    } else {
+      av.textContent = inicial;
+    }
+
+    const id = document.createElement('span');
+    id.className = 'dep-id';
+    const nome = document.createElement('strong');
+    nome.textContent = d.nome;
+    id.append(nome);
+    if (/^https:\/\/instagram\.com\//.test(d.instagramUrl || '')){
+      const a = document.createElement('a');
+      a.href = d.instagramUrl;
+      a.target = '_blank';
+      a.rel = 'noopener nofollow';
+      a.textContent = '@' + d.instagram;
+      id.append(a);
+    }
+
+    quem.append(av, id);
+    fig.append(q, quem);
+    return fig;
+  }
+
+  Promise.all(CURSOS.map(c => fetch(API + '?curso=' + encodeURIComponent(c)).then(r => r.json()).catch(() => null)))
+    .then(respostas => {
+      const vistos = new Set(), lista = [];
+      respostas.forEach(j => ((j && j.ok && Array.isArray(j.depoimentos)) ? j.depoimentos : []).forEach(d => {
+        const chave = JSON.stringify([d.nome, d.texto]);
+        if (!vistos.has(chave)) { vistos.add(chave); lista.push(d); }
+      }));
+      if (!lista.length) return;            // sem depoimento aprovado, a seção nem aparece
+      lista.slice(0, INICIAIS).forEach(d => grade.append(cartao(d)));
+      secao.hidden = false;
+      requestAnimationFrame(confereCortes);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(confereCortes);
+      if (lista.length > INICIAIS){
+        mais.hidden = false;
+        document.getElementById('dep-mais').addEventListener('click', () => {
+          lista.slice(INICIAIS).forEach(d => grade.append(cartao(d)));
+          mais.hidden = true;
+          requestAnimationFrame(confereCortes);
+        });
+      }
+    })
+    .catch(() => {});                       // se der erro, o visitante não vê nada diferente
+})();
+</script>
 
 <!-- 6. Podcast -->
 <section id="podcast">
@@ -338,7 +470,7 @@ section[id]{scroll-margin-top:80px}
     <h2 class="mt-3">Quero ser avisado das próximas turmas</h2>
     <p class="lead">Você recebe o aviso antes da abertura das inscrições. Não pedimos CPF nesse cadastro.</p>
     <div class="btns">
-      <a class="btn btn-primary" href="https://marcelofurlanfisio.github.io/cadastro/">Fazer meu cadastro</a>
+      <a class="btn btn-primary btn-xl" href="https://marcelofurlanfisio.github.io/cadastro/">Fazer meu cadastro <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
     <p class="metaline mt-5">Para estudantes e profissionais da área. Pacientes, procurem atendimento clínico por outro canal.</p>
   </div>
@@ -366,7 +498,6 @@ section[id]{scroll-margin-top:80px}
       <span><a href="sobre.html">Sobre</a></span>
       <span><a href="privacidade.html">Privacidade e LGPD</a></span>
     </div>
-    <p class="pf">Responsável pelos dados é Marcelo Pinese Furlan.</p>
   </div>
 </footer>
 
