@@ -41,9 +41,6 @@ section.alt{background:var(--surface-subtle)}
 :focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
 
 /* topo */
-.topbar{position:sticky;top:0;z-index:20;background:var(--surface-page);border-bottom:1px solid var(--border-hairline);transition:background-color .25s ease,box-shadow .25s ease}
-.topbar.is-scrolled{background:rgba(252,249,243,.85);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.topbar .wrap{display:flex;align-items:center;height:64px;gap:var(--sp-6)}
 .brand{font-family:var(--font-display);font-weight:500;font-size:20px;color:var(--text-heading);text-decoration:none;letter-spacing:var(--ls-display)}
 .lockup{display:block;text-decoration:none}
 .lockup-name,.lockup-role{display:block}
@@ -140,6 +137,31 @@ footer .pf{width:100%;font-size:13px;color:var(--c-navy-200);opacity:.85;margin:
 .btn .arrow{transition:transform var(--dur-fast) var(--ease-standard)}
 .btn:hover .arrow{transform:translateX(3px)}
 
+@media (min-width:768px) and (max-width:1019px){
+}
+@media (max-width:767px){
+}
+section[id]{scroll-margin-top:80px}
+
+@media (max-width:860px){
+  .hero-grid,.podcast-grid,.curso{grid-template-columns:1fr}
+  .curso .data{text-align:left;min-width:0}
+  .cards,.dep-grid{grid-template-columns:1fr}
+  footer .wrap{grid-template-columns:1fr}
+  .foto{aspect-ratio:1/1}
+}
+.mt-3{margin-top:var(--sp-3)}.mt-4{margin-top:var(--sp-4)}.mt-5{margin-top:var(--sp-5)}.mt-8{margin-top:var(--sp-8)}.mt-9{margin-top:var(--sp-9)}.m-0{margin:0}.pl-20{padding-left:20px}.pt-12{padding-top:var(--sp-12)}.mw-820{max-width:820px}.fs-hero{font-size:clamp(34px,5vw,48px)}.fs-28{font-size:28px}.no-top-border{border-top:0}
+h1 em{font-family:var(--font-display);font-style:italic;font-weight:400;color:var(--text-accent)}
+#inicio h1::after{content:"";display:block;width:56px;height:3px;background:var(--text-accent);margin:var(--sp-6) 0}
+.curso p{max-width:none}
+#instituicoes .lead{max-width:none}
+.curso .data .ciclo+.ciclo{margin-top:var(--sp-5)}
+.curso .data .local{margin-top:var(--sp-5)}
+
+/* cabeçalho padronizado (igual à página cursos) */
+.topbar{position:sticky;top:0;z-index:20;background:var(--surface-page);border-bottom:1px solid var(--border-hairline);transition:background-color .25s ease,box-shadow .25s ease}
+.topbar.is-scrolled{background:rgba(252,249,243,.85);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.topbar .wrap{display:flex;align-items:center;height:64px;gap:var(--sp-6)}
 .topnav{display:flex;align-items:center;gap:var(--sp-5);margin-left:auto}
 .topnav a{font-family:var(--font-ui);font-size:15px;font-weight:500;color:var(--text-heading);text-decoration:none}
 .topnav a:hover{color:var(--text-accent)}
@@ -161,22 +183,13 @@ footer .pf{width:100%;font-size:13px;color:var(--c-navy-200);opacity:.85;margin:
   .topnav{display:none;order:3;width:100%;margin-left:0;flex-direction:column;align-items:flex-start;gap:var(--sp-4);padding-top:var(--sp-4);border-top:1px solid var(--border-hairline)}
   .topbar.is-open .topnav{display:flex}
 }
-section[id]{scroll-margin-top:80px}
-
-@media (max-width:860px){
-  .hero-grid,.podcast-grid,.curso{grid-template-columns:1fr}
-  .curso .data{text-align:left;min-width:0}
-  .cards,.dep-grid{grid-template-columns:1fr}
-  footer .wrap{grid-template-columns:1fr}
-  .foto{aspect-ratio:1/1}
-}
-.mt-3{margin-top:var(--sp-3)}.mt-4{margin-top:var(--sp-4)}.mt-5{margin-top:var(--sp-5)}.mt-8{margin-top:var(--sp-8)}.mt-9{margin-top:var(--sp-9)}.m-0{margin:0}.pl-20{padding-left:20px}.pt-12{padding-top:var(--sp-12)}.mw-820{max-width:820px}.fs-hero{font-size:clamp(34px,5vw,48px)}.fs-28{font-size:28px}.no-top-border{border-top:0}
-h1 em{font-family:var(--font-display);font-style:italic;font-weight:400;color:var(--text-accent)}
-#inicio h1::after{content:"";display:block;width:56px;height:3px;background:var(--text-accent);margin:var(--sp-6) 0}
-.curso p{max-width:none}
-#instituicoes .lead{max-width:none}
-.curso .data .ciclo+.ciclo{margin-top:var(--sp-5)}
-.curso .data .local{margin-top:var(--sp-5)}
+.topbar .wrap{padding-left:var(--page-margin);padding-right:var(--page-margin)}
+.lockup{display:block;text-decoration:none}
+.lockup-name,.lockup-role{display:block}
+.lockup-name{font-family:var(--font-display);font-weight:500;letter-spacing:var(--ls-display);line-height:1.02;color:var(--text-heading)}
+.lockup-role{font-weight:600;letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--text-accent)}
+.lockup.sm .lockup-name{font-size:19px}.lockup.sm .lockup-role{font-size:9px;margin-top:5px}
+.lockup.md .lockup-name{font-size:28px}.lockup.md .lockup-role{font-size:11px;margin-top:7px}
 </style>
 </head>
 <body>
